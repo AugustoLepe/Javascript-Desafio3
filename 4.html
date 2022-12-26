@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .grid > div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="grid">
+        <div id="div_1">1</div>
+        <div id="div_2">2</div>
+        <div id="div_3">3</div>
+        <div id="div_4">4</div>
+    </div>
+
+<script>
+    //Definir color base
+    color = "white";
+
+    //Detectar una tecla y asignar un color
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'a') {
+            color = "green"
+        } else if (event.key === 's') {
+            color = "blue"
+        } else if (event.key === 'd') {
+            color = "red"
+        } else {
+            color = "white"
+        }
+    console.log ("tecla = " + event.key + ", color = " + color);
+    });
+
+    //Detectar un click y pintar el div con el color definido por la tecla presionada
+    document.addEventListener('click', function (event) {
+        if (event.target.id){
+            console.log("cajita = " + event.target.id);
+            cajita = document.getElementById(event.target.id);
+            cajita.style.backgroundColor = color;
+        }
+    });
+
+</script>
+</body>
+</html>
